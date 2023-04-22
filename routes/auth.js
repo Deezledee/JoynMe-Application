@@ -21,3 +21,5 @@ router.get("/auth/signup", (req, res, next) => {
       return
     }
 })
+
+module.exports = router;

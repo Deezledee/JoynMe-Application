@@ -81,5 +81,9 @@ router.post("/auth/login", (req, res, next) => {
     })
 })
 
+router.get("/main", isLoggedIn, (req, res, next) => {
+  res.render("main")
+})
+
 
 module.exports = router;

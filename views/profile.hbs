@@ -1,2 +1,29 @@
 <h1>Hello {{user.username}}</h1>
+<h2>Finish setting up your profile:</h2>
+<form action="/main" method="POST">
+  <label for="email">Email Address (Public):</label>
+  <input type="text" name="email" />
+
+<label for="interests">Tell us about your interests:</label>
+<select id="interests" name="interests">
+  <option>Sports</option>
+  <option>Music</option>
+  <option>Food</option>
+  <option>Travel</option>
+  <option>Nightlife</option>
+</select>
+
+
+  <label for="about">Tell us a bit about yourself:</label>
+  <input type="textarea" name="about" />
+
+
+<label for="termsAndConditions">Terms and Conditions</label>
+<input type="checkbox" id="termsAndConditions" name="termsAndConditions" value="yes">
+
+<input type="submit" value="Create Profile"></input>
+</form>
+
+
+
 <a href="/auth/logout">Logout</a>

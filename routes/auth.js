@@ -17,7 +17,7 @@ router.get("/auth/signup", (req, res, next) => {
     }
   
     if (password.length < 8) {
-      res.render("signup", { message: "Password has to be minimum 4 characters" })
+      res.render("signup", { message: "Password has to be minimum 8 characters" })
       return
     }
 })

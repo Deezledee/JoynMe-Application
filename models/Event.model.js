@@ -2,9 +2,21 @@ const { Schema, model } = require("mongoose");
 
 // TODO: Please make sure you edit the user model to whatever makes sense in this case
 const eventSchema = new Schema({
+  organizer: {
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	},
   title: String,
   location: String,
-  organizer: String,
+  date: Date,
+  description: String,
+  pastEvent: Boolean,
+  maxParticipants: Number,
+  participants: [{
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	}],
+
 });
 
 const Event = model("Event", eventSchema);

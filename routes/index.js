@@ -34,11 +34,12 @@ router.post("/my-events", (req, res, next) => {
   const organizer = req.session.user._id
   const { title, location, date, time, description, maxParticipants } = req.body
 
-  console.log(organizer, req.body)
   Event.create({ organizer, title, location, date, time, description, maxParticipants })
-    .then(newEvent => console.log(newEvent))
-
+    .then(newEvent => 
+      res.render("my-events")
+    )
 })
+
     
 
 

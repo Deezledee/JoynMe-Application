@@ -9,8 +9,12 @@ const eventSchema = new Schema({
   title: String,
   location: String,
   date: Date,
+  time: String,
   description: String,
-  pastEvent: Boolean,
+  pastEvent: {
+    type: Boolean,
+    default: false
+  },
   maxParticipants: Number,
   participants: [{
 		type: Schema.Types.ObjectId,

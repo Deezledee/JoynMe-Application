@@ -16,7 +16,10 @@ const userSchema = new Schema({
   },
   interests: [String],
   about: String,
-  termsAccepted: Boolean,
+  termsAccepted: {
+    type: Boolean,
+    default: false
+  },
   picture: String,
 });
 

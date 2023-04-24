@@ -1,17 +1,16 @@
-<div class="container d-flex flex-column align-items-center ">
-<h1>Sign up</h1>
-<form class="d-flex flex-column"action="/auth/signup" method="POST">
-    <label for="username">Username:</label>
-	<input type="text" name="username" required>
-	
-    <label for="password">Password:</label>
-    <input type="password" name="password" required>
-	
-    <button class="btn btn-primary" type="submit">Signup</button>
-</form>
+<div class="container d-flex flex-column align-items-center" style="color: #F78F20; background-color: #112C4A;">
+    <h1>Sign up</h1>
+    <form class="d-flex flex-column" action="/auth/signup" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
 
-{{#if message}}
-	<h3 class="error">{{message}}</h3>
-{{/if}}
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
 
+        <button class="btn btn-primary" type="submit">Signup</button>
+    </form>
+
+    {{#if message}}
+        <h3 class="error">{{message}}</h3>
+    {{/if}}
 </div>

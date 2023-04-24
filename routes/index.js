@@ -42,7 +42,15 @@ router.post("/my-events", (req, res, next) => {
 
 
 
+router.get('/my-events', isLoggedIn, (req, res, next) => {
+  const organizer = req.session.user._id
+  Event.find({organizer})
+  .then(eventsFromDB => {
+    console.log(eventsFromDB)
+  res.render('my-events', {events: eventsFromDB} ) } )
+})
     
+
 
 
 module.exports = router;

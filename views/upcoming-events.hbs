@@ -1,11 +1,16 @@
 <h1>Upcoming Events</h1>
 
 {{#each events}}
-<h2>Title: {{this.title}}</h2>
-<p>Place: {{this.location}}</p>
-<p>Date: {{this.date}}</p>
-<p>Description: {{this.description}}</p>
-<p>Number of spots: {{this.maxParticipants}}</p>
-<p>Participants: {{this.participants}}</p>
-<a href="/join-event/{{this._id}}">Joyn this event</a>
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">{{this.title}}</h2>
+    <p class="card-text"><strong>Place:</strong> {{this.location}}</p>
+    <p class="card-text"><strong>Date:</strong> {{this.date}}</p>
+    <p class="card-text"><strong>Description:</strong> {{this.description}}</p>
+    <p class="card-text"><strong>Number of spots:</strong> {{this.maxParticipants}}</p>
+    <p class="card-text"><strong>Participants:</strong> {{this.participants}}</p>
+    <a href="/join-event/{{this._id}}" class="btn btn-primary">Join this event</a>
+  </div>
+</div>
+
 {{/each}}

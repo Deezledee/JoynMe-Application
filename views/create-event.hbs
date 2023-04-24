@@ -1,23 +1,36 @@
-<h1>Create a Event</h1>
-<form action="/event-detail" method="POST">
-    <label for="title">What will you do? </label>
-    <input type="text" id="title" name="title" />
+<div class="container">
+  <h1>Create a Event</h1>
+  <form class="form" action="/event-detail" method="POST">
+    <div class="form-group">
+      <label for="title">What will you do?</label>
+      <input class="form-control" type="text" id="title" name="title">
+    </div>
 
-    <label for="location">Where? </label>
-    <input type="text" id="location" name="location" />
+    <div class="form-group">
+      <label for="location">Where?</label>
+      <input class="form-control" type="text" id="location" name="location">
+    </div>
 
-    <label for="date">When? </label>
-    <input type="date" id="time" name="date" />
+    <div class="form-group">
+      <label for="date">When?</label>
+      <input class="form-control" type="date" id="date" name="date">
+    </div>
 
-    <label for="time">Time:</label>
-    <input type="time" id="time" name="time">
+    <div class="form-group">
+      <label for="time">Time:</label>
+      <input class="form-control" type="time" id="time" name="time">
+    </div>
 
-   <label for="description">Tell us more? </label>
-   <input type="text" id="description" name="description" />
+    <div class="form-group">
+      <label for="description">Tell us more?</label>
+      <textarea class="form-control" id="description" name="description"></textarea>
+    </div>
 
-   <label for="maxParticipants">How many guests do you accept? </label>
-   <input type="number" min="1" id="maxParticipants" name="maxParticipants" />
+    <div class="form-group">
+      <label for="maxParticipants">How many guests do you accept?</label>
+      <input class="form-control" type="number" min="1" id="maxParticipants" name="maxParticipants">
+    </div>
 
-   <input type="submit" value="Create Event"></input>
-
-</form>
+    <button class="btn btn-primary" type="submit">Create Event</button>
+  </form>
+</div>

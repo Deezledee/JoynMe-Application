@@ -1,28 +1,33 @@
 <h1>Hello {{user.username}}</h1>
 <h2>Finish setting up your profile:</h2>
-<form action="/main" method="POST">
-  <label for="email">Email Address (Public):</label>
-  <input type="text" name="email" />
+<form class="form" action="/main" method="POST">
+  <div class="form-group">
+    <label for="email">Email Address (Public):</label>
+    <input class="form-control" type="text" name="email" id="email">
+  </div>
 
-<label for="interests">Tell us about your interests:</label>
-<select id="interests" name="interests">
-  <option>Sports</option>
-  <option>Music</option>
-  <option>Food</option>
-  <option>Travel</option>
-  <option>Nightlife</option>
-</select>
+  <div class="form-group">
+    <label for="interests">Tell us about your interests:</label>
+    <select class="form-control" id="interests" name="interests">
+      <option>Sports</option>
+      <option>Music</option>
+      <option>Food</option>
+      <option>Travel</option>
+      <option>Nightlife</option>
+    </select>
+  </div>
 
+  <div class="form-group">
+    <label for="about">Tell us a bit about yourself:</label>
+    <textarea class="form-control" name="about" id="about"></textarea>
+  </div>
 
-  <label for="about">Tell us a bit about yourself:</label>
-  <input type="textarea" name="about" />
+  <div class="form-group form-check">
+    <input class="form-check-input" type="checkbox" id="termsAccepted" name="termsAccepted" value='true'>
+    <label class="form-check-label" for="termsAccepted">Terms and Conditions</label>
+  </div>
 
-
-<label for="termsAccepted">Terms and Conditions</label>
-<input type="checkbox" id="termsAccepted" name="termsAccepted" value='true'>
-
-<input type="submit" value="Create Profile"></input>
+  <button class="btn btn-primary" type="submit">Create Profile</button>
 </form>
 
-
-<a href="/auth/logout">Logout</a>
+<a class="btn btn-secondary" href="/auth/logout">Logout</a>

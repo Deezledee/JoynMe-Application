@@ -1,14 +1,21 @@
-<h1>Login</h1>
-<form action="/auth/login" method="POST">
-    <label for="username">Username: </label>
-	<input type="text" name="username">
+<div class="container d-flex flex-column">
+    <h1>Login</h1>
+<form class="form" action="/auth/login" method="POST">
+    <div class="form-group">
+        <label for="username">Username: </label>
+        <input class="form-control" type="text" name="username" id="username">
+    </div>
 	
-    <label for="password">Password: </label>
-    <input type="password" name="password">
+    <div class="form-group">
+        <label for="password">Password: </label>
+        <input class="form-control" type="password" name="password" id="password">
+    </div>
 	
-    <button type="submit">Login</button>
+    <button class="btn btn-primary" type="submit">Login</button>
 </form>
+
 
 {{#if message}}
 	<h3 class="error">{{message}}</h3>
 {{/if}}
+</div>

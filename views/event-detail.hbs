@@ -1,16 +1,15 @@
-<h1>My Created Event</h1>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{newEvent.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{newEvent.location}}</h6>
+    <p class="card-text">{{newEvent.description}}</p>
+    <p class="card-text">Date: {{newEvent.date}}</p>
+    <p class="card-text">Number of spots: {{newEvent.maxParticipants}}</p>
+    <p class="card-text">Participants: {{newEvent.participants}}</p>
+    <a href="/my-events" class="card-link">My events</a>
+    <a href="/main" class="card-link">Join other events</a>
+  </div>
+</div>
+ <a href="/create-event" class="card-link">Create new event</a>
 
-
-
- <h1>Event Detail</h1>
-<h2>Title: {{newEvent.title}}</h2>
-<p>Place: {{newEvent.location}}</p>
-<p>Date: {{newEvent.date}}</p>
-<p>Description: {{newEvent.description}}</p>
-<p>Number of spots: {{newEvent.maxParticipants}}</p>
-<p>Participants: {{newEvent.participants}}</p>
-
-<a href="/create-event">Create more</a>
-<a href="/my-events">My events</a>
-<a href="/main">Join other events</a>
  

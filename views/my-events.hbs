@@ -1,11 +1,14 @@
  <h1> My Created Events</h1>
 
-
+<a href="/create-event">Create another event</a>
 {{#each events}}
 <p>{{this.title}}</p>
 <p>{{this.location}}</p>
 <p>{{this.date}}</p>
 <p>{{this.time}}</p>
 <p>{{this.description}}</p>
+
+<a href='/edit-event/{{this._id}}'>Edit event</a>
+<a href='/delete-event/{{this._id}}'>Delete event</a>
 
 {{/each}} 

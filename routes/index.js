@@ -40,6 +40,7 @@ router.post("/event-detail", (req, res, next) => {
     )
 })
 
+
 router.post('/upcoming-events', (req, res, next) => {
   console.log(req.body)
 })
@@ -54,6 +55,36 @@ router.get('/my-events', isLoggedIn, (req, res, next) => {
   res.render('my-events', {events: eventsFromDB} ) } )
 })
     
+
+router.get('/edit-event/:id', (req, res, next) =>{
+  Event.findById(req.params.id)
+    .then(eventToEdit =>{
+      res.render("edit-event", {eventToEdit})
+      })
+})
+
+router.post('/edit-event/:id', (req, res, next) => {
+  const { title, location, date, time, description, maxParticipants } = req.body
+  Event.findByIdAndUpdate(req.params.id, { 
+    title, 
+    location, 
+    date, 
+    time, 
+    description, 
+    maxParticipants }, {new: true})
+    .then((newEvent) => {
+      res.render(`event-detail`, {newEvent})
+    })
+    .catch(err => next(err))
+})
+
+router.get('/delete-event/:id', (req, res, next) => {
+  Event.findByIdAndDelete(req.params.id)
+    .then(() => {
+      res.redirect('/my-events')
+    })
+    .catch(err => next(err))
+})
 
 
 

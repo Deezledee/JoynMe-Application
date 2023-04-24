@@ -46,7 +46,11 @@ router.get('/my-events', isLoggedIn, (req, res, next) => {
   const organizer = req.session.user._id
   Event.find({organizer})
   .then(eventsFromDB => {
-  res.render('my-events', {events: eventsFromDB} ) } )
+    Event.find({participants: organizer})
+    .then(joinedEvents => {
+      console.log(joinedEvents)
+      res.render('my-events', {events: eventsFromDB, participation: joinedEvents } ) } )
+    })
 })
 
 
@@ -93,8 +97,8 @@ router.get('/join-event/:id', (req, res, next) => {
   const userId = req.session.user._id
 
   Event.findByIdAndUpdate(eventId, { $push: { participants:  userId  } }, {new: true})
-    .then(event => {
-      console.log(event)
+    .then(() => {
+      res.redirect('/my-events')
     })
 
 })

@@ -1,1 +1,11 @@
 <h1>Upcoming Events</h1>
+
+{{#each events}}
+<h2>Title: {{this.title}}</h2>
+<p>Place: {{this.location}}</p>
+<p>Date: {{this.date}}</p>
+<p>Description: {{this.description}}</p>
+<p>Number of spots: {{this.maxParticipants}}</p>
+<p>Participants: {{this.participants}}</p>
+<a href="/join-event/{{this._id}}">Joyn this event</a>
+{{/each}}

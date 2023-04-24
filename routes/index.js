@@ -41,20 +41,14 @@ router.post("/event-detail", (req, res, next) => {
 })
 
 
-router.post('/upcoming-events', (req, res, next) => {
-  console.log(req.body)
-})
-
-
 
 router.get('/my-events', isLoggedIn, (req, res, next) => {
   const organizer = req.session.user._id
   Event.find({organizer})
   .then(eventsFromDB => {
-    console.log(eventsFromDB)
   res.render('my-events', {events: eventsFromDB} ) } )
 })
-    
+
 
 router.get('/edit-event/:id', (req, res, next) =>{
   Event.findById(req.params.id)
@@ -86,6 +80,24 @@ router.get('/delete-event/:id', (req, res, next) => {
     .catch(err => next(err))
 })
 
+router.post('/upcoming-events', (req, res, next) => {
+  const { location, date } = req.body
+  Event.find({ location, date })
+    .then( events => {
+      res.render('upcoming-events', { events })
+    })
+})
+
+router.get('/join-event/:id', (req, res, next) => {
+  const eventId = req.params.id
+  const userId = req.session.user._id
+
+  Event.findByIdAndUpdate(eventId, { $push: { participants:  userId  } }, {new: true})
+    .then(event => {
+      console.log(event)
+    })
+
+})
 
 
 module.exports = router;

@@ -21,6 +21,10 @@ const userSchema = new Schema({
     default: false
   },
   picture: String,
+  profileCreated: {
+    type: Boolean,
+    default: false
+  }
 });
 
 

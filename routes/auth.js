@@ -68,7 +68,12 @@ router.post("/auth/login", (req, res, next) => {
         // Password is correct => Login user
         // req.session is an object provided by "express-session"
         req.session.user = userFromDB
-        res.redirect("/profile")
+        if (userFromDB.profileCreated === true){ 
+          res.redirect("/main")
+        } else { 
+          res.redirect("/profile")
+        }
+        
       } else {
         res.render("login", { message: "Wrong credentials" })
         return

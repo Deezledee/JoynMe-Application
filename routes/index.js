@@ -30,13 +30,13 @@ router.get('/create-event', isLoggedIn, (reg, res, next) => {
   res.render('create-event')
 })
 
-router.post("/my-events", (req, res, next) => {
+router.post("/event-detail", (req, res, next) => {
   const organizer = req.session.user._id
   const { title, location, date, time, description, maxParticipants } = req.body
 
   Event.create({ organizer, title, location, date, time, description, maxParticipants })
     .then(newEvent => 
-      res.render("my-events", {newEvent})
+      res.render("event-detail", {newEvent})
     )
 })
 

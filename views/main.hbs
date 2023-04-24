@@ -1,12 +1,13 @@
 <h1>Main</h1>
-<form action="/main" method="GET">
+<form action="/upcoming-events" method="POST">
  <div class="form-group">
     <h3>Browse upcoming events</h3>
     <label for="city">Where?</label>
-    <input type="text" class="form-control" id="city"  placeholder="Enter city">
+    <input type="text" class="form-control" id="city"  placeholder="Enter city" name="city">
     <label for="city">When?</label>
-    <input type="date" class="form-control" id="date"  placeholder="Enter date">
+    <input type="date" class="form-control" id="date"  placeholder="Enter date" name="date">
+    <input class="btn btn-secondary"type="submit" value="search">
 </form>
 
 
-<a href="/create-event">Create Event</a>
+<a class="btn btn-primary" href="/create-event">Create Event</a>

@@ -36,8 +36,12 @@ router.post("/my-events", (req, res, next) => {
 
   Event.create({ organizer, title, location, date, time, description, maxParticipants })
     .then(newEvent => 
-      res.render("event-detail", {newEvent})
+      res.render("my-events", {newEvent})
     )
+})
+
+router.post('/upcoming-events', (req, res, next) => {
+  console.log(req.body)
 })
 
 

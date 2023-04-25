@@ -1,6 +1,6 @@
-<h1> My Events</h1>
-
-<a href="/create-event" class="btn btn-secondary">Create another event</a>
+{{#if events}}
+<h1>Events I organize</h1>
+{{/if}}
 {{#each events}}
 <div class="card">
   <div class="card-body">
@@ -12,6 +12,22 @@
     <a href='/delete-event/{{this._id}}' class="btn btn-danger">Delete event</a>
   </div>
 </div>
-
-
 {{/each}} 
+
+{{#if participation}}
+<h1>Events I joined</h1>
+{{#each participation}}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{this.title}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{this.location}}</h6>
+    <p class="card-text">{{this.description}}</p>
+    <p class="card-text"><small class="text-muted">{{this.date}} at {{this.time}}</small></p>
+    <p class="card-text">Contact organizer: {{this.organizer.email}}</p>
+
+    <a href='/cancel/{{this._id}}' class="btn btn-danger">I can't participate anymore</a>
+
+  </div>
+</div>
+{{/each}} 
+{{/if}}

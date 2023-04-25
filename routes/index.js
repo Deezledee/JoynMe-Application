@@ -41,12 +41,16 @@ router.post("/event-detail", (req, res, next) => {
 })
 
 
-
+// render created and joined events
 router.get('/my-events', isLoggedIn, (req, res, next) => {
-  const organizer = req.session.user._id
-  Event.find({organizer})
+  const userId = req.session.user._id
+  Event.find({organizer: userId})
   .then(eventsFromDB => {
-  res.render('my-events', {events: eventsFromDB} ) } )
+    Event.find({participants: userId})
+    .populate('organizer')
+    .then(joinedEvents => {
+      res.render('my-events', {events: eventsFromDB, participation: joinedEvents } ) } )
+    })
 })
 
 
@@ -72,6 +76,7 @@ router.post('/edit-event/:id', (req, res, next) => {
     .catch(err => next(err))
 })
 
+// delete created event
 router.get('/delete-event/:id', (req, res, next) => {
   Event.findByIdAndDelete(req.params.id)
     .then(() => {
@@ -80,22 +85,69 @@ router.get('/delete-event/:id', (req, res, next) => {
     .catch(err => next(err))
 })
 
+//browse events
 router.post('/upcoming-events', (req, res, next) => {
   const { location, date } = req.body
   Event.find({ location, date })
-    .then( events => {
-      res.render('upcoming-events', { events })
+    .populate('organizer')
+    .then( foundEvents => {
+      //filter out fully booked events
+      availableEvents = []
+      foundEvents.forEach(event => {
+        if(event.maxParticipants > event.participants.length) {
+          availableEvents.push(event)
+        }
+      })      
+      res.render('upcoming-events', { events: availableEvents })
     })
 })
 
+//user joins the event
 router.get('/join-event/:id', (req, res, next) => {
   const eventId = req.params.id
   const userId = req.session.user._id
 
   Event.findByIdAndUpdate(eventId, { $push: { participants:  userId  } }, {new: true})
-    .then(event => {
-      console.log(event)
+    .then(() => {
+      res.redirect('/my-events')
     })
+
+})
+
+// user cancels participation in event they previously joined
+router.get('/cancel/:id', (req, res, next) => {
+  const userId = req.session.user._id
+  const eventId = req.params.id
+
+  Event.findByIdAndUpdate(eventId, { $pull: { participants:  userId  } }, {new: true})
+  .then(() => {
+    res.redirect('/my-events')
+  })
+})
+
+//view profile details
+router.get('/profile-details', (req, res, next) => {
+  User.findOne({  _id: req.session.user._id  })
+    .then(currentUser => {
+      res.render('profile-details', { currentUser })
+    })
+})
+//got to edit profile view
+router.get('/edit-profile', (req, res, next) => {
+  User.findOne({  _id: req.session.user._id  })
+    .then(currentUser => {
+      res.render('edit-profile', { currentUser })
+    })
+})
+//update user profile
+router.post('/edit-profile', (req, res, next) => {
+const userId = req.session.user._id
+const { username, email, interests, about } = req.body
+
+User.findByIdAndUpdate(userId, { username, email, interests, about })
+  .then(() => {
+    res.redirect('/profile-details')
+  })
 
 })
 

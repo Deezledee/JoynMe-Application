@@ -61,12 +61,9 @@ router.post("/auth/login", (req, res, next) => {
         res.render("login", { message: "Wrong credentials" })
         return
       }
-
-      // User found in database
       // Check if password from input form matches hashed password from database
       if (bcrypt.compareSync(password, userFromDB.password)) {
         // Password is correct => Login user
-        // req.session is an object provided by "express-session"
         req.session.user = userFromDB
         if (userFromDB.profileCreated === true){ 
           res.redirect("/main")
@@ -78,9 +75,9 @@ router.post("/auth/login", (req, res, next) => {
         res.render("login", { message: "Wrong credentials" })
         return
       }
-    })
+})
     
-    router.get("/auth/logout", (req, res, next) => {
+router.get("/auth/logout", (req, res, next) => {
       // Logout user
       req.session.destroy()
       res.redirect("/")

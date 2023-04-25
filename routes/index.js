@@ -3,6 +3,7 @@ const { isLoggedIn } = require('../middleware/route-guard');
 const router = express.Router();
 const User = require("../models/User.model")
 const Event = require("../models/Event.model")
+const { uploader, cloudinary } = require("../config/cloudinary.config")
 
 
 
@@ -15,11 +16,15 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
   res.render("profile", { user: user })
    })
 
-router.post("/main", isLoggedIn, (req, res, next) => {
+router.post("/main", isLoggedIn, uploader.single('file'), (req, res, next) => {
+  console.log(req.file)
+
    const {  email, intrests, about, termsAccepted } = req.body
    const userId = req.session.user._id
+  const imgPath = req.file.path
 
-   User.findByIdAndUpdate(userId, {  email, intrests, about, termsAccepted, profileCreated: true }, { new: true })
+
+   User.findByIdAndUpdate(userId, {  email, intrests, about, termsAccepted, picture: imgPath, profileCreated: true }, { new: true })
    .then(currUser => {
     res.redirect("main")
    })
@@ -140,15 +145,16 @@ router.get('/edit-profile', (req, res, next) => {
     })
 })
 //update user profile
-router.post('/edit-profile', (req, res, next) => {
+router.post('/edit-profile', uploader.single('profileImg'), (req, res, next) => {
+  console.log("FILE ", req.file)
 const userId = req.session.user._id
+const imgPath = req.file.path
 const { username, email, interests, about } = req.body
 
-User.findByIdAndUpdate(userId, { username, email, interests, about })
+User.findByIdAndUpdate(userId, { username, email, interests, about, picture: imgPath })
   .then(() => {
     res.redirect('/profile-details')
   })
-
 })
 
 

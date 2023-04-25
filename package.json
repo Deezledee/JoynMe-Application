@@ -2,6 +2,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bootstrap": "^3.4.1",
+    "cloudinary": "^1.36.2",
     "connect-mongo": "^5.0.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
@@ -10,6 +11,8 @@
     "hbs": "^4.2.0",
     "mongoose": "^7.0.4",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^2.0.22",
     "serve-favicon": "^2.5.0"
   }

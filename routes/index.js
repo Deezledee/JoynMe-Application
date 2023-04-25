@@ -21,7 +21,7 @@ router.post("/main", isLoggedIn, uploader.single('file'), (req, res, next) => {
 
    const {  email, intrests, about, termsAccepted } = req.body
    const userId = req.session.user._id
-  const imgPath = req.file.path
+   const imgPath = req.file.path
 
 
    User.findByIdAndUpdate(userId, {  email, intrests, about, termsAccepted, picture: imgPath, profileCreated: true }, { new: true })
@@ -98,7 +98,7 @@ router.post('/upcoming-events', (req, res, next) => {
     .populate('organizer')
     .then( foundEvents => {
       //filter out fully booked events
-      availableEvents = []
+      const availableEvents = []
       foundEvents.forEach(event => {
         if(event.maxParticipants > event.participants.length) {
           availableEvents.push(event)

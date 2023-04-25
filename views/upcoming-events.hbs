@@ -1,6 +1,7 @@
-{{#if}}
+{{!-- {{#if !events}}
 <h1>No upcoming events at this location or time. Create your own event!</h1>
-{{#if}}
+{{/if}} --}}
+
 {{#if events}}
 <h1>Upcoming Events</h1>
 
@@ -17,6 +18,9 @@
     <a href="/join-event/{{this._id}}" class="btn btn-primary">Join this event</a>
   </div>
 </div>
-
 {{/each}}
+{{else}}
+<h1>No upcoming events at your preference. Create your own event!</h1>
+<a class="btn btn-primary" href="/create-event">Create Event</a>
 {{/if}}
+

@@ -16,10 +16,10 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
    })
 
 router.post("/main", isLoggedIn, (req, res, next) => {
-   const {  email, intrests, about, termsAccepted } = req.body
+   const {  email, interests, about, termsAccepted } = req.body
    const userId = req.session.user._id
 
-   User.findByIdAndUpdate(userId, {  email, intrests, about, termsAccepted, profileCreated: true }, { new: true })
+   User.findByIdAndUpdate(userId, {  email, interests, about, termsAccepted, profileCreated: true }, { new: true })
    .then(currUser => {
     res.redirect("main")
    })

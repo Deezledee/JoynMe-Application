@@ -25,6 +25,7 @@ router.post("/main", isLoggedIn, uploader.single('file'), (req, res, next) => {
 
 
    User.findByIdAndUpdate(userId, {  email, intrests, about, termsAccepted, picture: imgPath, profileCreated: true }, { new: true })
+
    .then(currUser => {
     res.redirect("main")
    })

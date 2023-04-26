@@ -98,8 +98,6 @@ router.post('/upcoming-events', (req, res, next) => {
     .populate('organizer')
     .then( foundEvents => {
       //filter out fully booked events
-
-
      const availableEvents = []
 
       foundEvents.forEach(event => {
@@ -120,7 +118,6 @@ router.get('/join-event/:id', (req, res, next) => {
     .then(() => {
       res.redirect('/my-events')
     })
-
 })
 
 // user cancels participation in event they previously joined
@@ -150,12 +147,18 @@ router.get('/edit-profile', (req, res, next) => {
 })
 //update user profile
 router.post('/edit-profile', uploader.single('profileImg'), (req, res, next) => {
-  console.log("FILE ", req.file)
+console.log("FILE ", req.file)
 const userId = req.session.user._id
-const imgPath = req.file.path
+let imgPath 
+
+if (req.file && req.file.path) {
+  imgPath = req.file.path
+}
+
+
 const { username, email, interests, about } = req.body
 
-User.findByIdAndUpdate(userId, { username, email, interests, about, picture: imgPath })
+User.findByIdAndUpdate(userId, { username, email, interests, about, picture: imgPath }, {new: true})
   .then(() => {
     res.redirect('/profile-details')
   })

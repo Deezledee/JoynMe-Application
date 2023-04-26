@@ -20,7 +20,10 @@ const userSchema = new Schema({
     type: Boolean,
     default: false
   },
-  picture: String,
+  picture: {
+    type: String,
+    default: "https://www.vecteezy.com/vector-art/2534006-social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background"
+  },
   profileCreated: {
     type: Boolean,
     default: false

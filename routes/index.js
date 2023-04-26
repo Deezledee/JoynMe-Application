@@ -25,16 +25,17 @@ router.post("/main", isLoggedIn, uploader.single('file'), (req, res, next) => {
 
 
    User.findByIdAndUpdate(userId, {  email, intrests, about, termsAccepted, picture: imgPath, profileCreated: true }, { new: true })
-
-   .then(currUser => {
-    res.redirect("main")
+   .then(currentUser => {
+    res.redirect("main", { currentUser })
    })
   
 })
 
-router.get('/create-event', isLoggedIn, (reg, res, next) => {
-  res.render('create-event')
-})
+router.get('/create-event', isLoggedIn, (req, res, next) => {
+  User.findOne({  _id: req.session.user._id  })
+    .then(currentUser => { 
+  res.render('create-event', { currentUser })
+}) })
 
 router.post("/event-detail", (req, res, next) => {
   const organizer = req.session.user._id
@@ -42,9 +43,12 @@ router.post("/event-detail", (req, res, next) => {
 
   Event.create({ organizer, title, location, date, time, description, maxParticipants })
     .then(newEvent => 
-      res.render("event-detail", {newEvent})
+      User.findOne({  _id: req.session.user._id  })
+      .then(currentUser => { 
+        res.render("event-detail", { newEvent , currentUser })   
+      })
     )
-})
+}) 
 
 
 // render created and joined events
@@ -55,17 +59,22 @@ router.get('/my-events', isLoggedIn, (req, res, next) => {
     Event.find({participants: userId})
     .populate('organizer')
     .then(joinedEvents => {
-      res.render('my-events', {events: eventsFromDB, participation: joinedEvents } ) } )
-    })
+     User.findOne({  _id: req.session.user._id  })
+    .then(currentUser => { 
+      res.render('my-events', {events: eventsFromDB, participation: joinedEvents, currentUser } ) } )
+    }) })
 })
 
 
 router.get('/edit-event/:id', (req, res, next) =>{
   Event.findById(req.params.id)
     .then(eventToEdit =>{
-      res.render("edit-event", {eventToEdit})
+      User.findOne({  _id: req.session.user._id  })
+       .then(currentUser => { 
+      res.render("edit-event", {eventToEdit, currentUser}) 
+       
       })
-})
+}) })
 
 router.post('/edit-event/:id', (req, res, next) => {
   const { title, location, date, time, description, maxParticipants } = req.body
@@ -104,8 +113,11 @@ router.post('/upcoming-events', (req, res, next) => {
         if(event.maxParticipants > event.participants.length) {
           availableEvents.push(event)
         }
-      })      
-      res.render('upcoming-events', { events: availableEvents })
+      }) 
+      User.findOne({  _id: req.session.user._id  })
+      .then(currentUser => {      
+      res.render('upcoming-events', { events: availableEvents, currentUser })
+      })
     })
 })
 
@@ -170,4 +182,4 @@ router.get('/privacy-policy', (req, res) => {
 
 
 
-module.exports = router;
+module.exports = router

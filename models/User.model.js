@@ -22,7 +22,7 @@ const userSchema = new Schema({
   },
   picture: {
     type: String,
-    default: "https://www.vecteezy.com/vector-art/2534006-social-media-chatting-online-blank-profile-picture-head-and-body-icon-people-standing-icon-grey-background"
+    default: "https://cvhrma.org/wp-content/uploads/2015/07/default-profile-photo.jpg"
   },
   profileCreated: {
     type: Boolean,

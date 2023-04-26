@@ -1,40 +1,45 @@
-<h1>Edit profile</h1>
+<div class="container text-center">
+  <div class="card mx-auto" style="max-width: 400px; border-radius: 20px; background-color:#F8F2C1">
+    <div class="card-body">
+      <h1 class="card-title">Edit Profile</h1>
 
-<img src={{currentUser.picture}} alt="profile picture" height="100px" width="100px" style="border-radius: 50%">
+      <img src="{{currentUser.picture}}" alt="profile picture" height="100px" width="100px" style="border-radius: 50%" class="mx-auto d-block mb-3">
 
-<form action="/edit-profile" method="POST" enctype="multipart/form-data">
+      <form action="/edit-profile" method="POST" enctype="multipart/form-data">
 
-  <div class="form-group">
-    <label for="username">Username:</label>
-    <input type="text" class="form-control" id="username" name="username" value="{{currentUser.username}}" required>
+        <div class="form-group">
+          <label for="username" style="font-size: 20px; font-weight: bold; margin-bottom: 20px">Username:</label>
+          <input type="text" class="form-control" id="username" name="username" value="{{currentUser.username}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email" style="font-size: 20px; font-weight: bold; margin-bottom: 20px">Email:</label>
+          <input type="text" class="form-control" id="email" name="email" value="{{currentUser.email}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="interests" style="font-size: 20px; font-weight: bold; margin-bottom: 20px">Interests:</label>
+          <select class="form-control" id="interests" name="interests" value="{{currentUser.interests}}" required>
+            <option>Sports</option>
+            <option>Music</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Nightlife</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="about" style="font-size: 20px; font-weight: bold; margin-bottom: 20px">About me:</label>
+          <input type="text" class="form-control" id="about" name="about" value="{{currentUser.about}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="profileImg" style="display: none">Change your profile picture:</label>
+          <input type="file" name="profileImg" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Edits</button>
+      </form>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="text" class="form-control" id="email" name="email" value="{{currentUser.email}}" required>
-  </div>
-
-   <div class="form-group">
-    <label for="interests">Interests:</label>
-    <select class="form-control" id="interests" name="interests" value="{{currentUser.interests}}" required>
-      <option>Sports</option>
-      <option>Music</option>
-      <option>Food</option>
-      <option>Travel</option>
-      <option>Nightlife</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="about">About me: </label>
-    <input type="text" class="form-control" id="about" name="about" value="{{currentUser.about}}" required>
-  </div>
-
-<div>
-  <label for="profileImg">Change your profile picture:  </label>
-  <input type="file" name="profileImg" />
 </div>
-
-  <button type="submit" class="btn btn-primary">Save edits</button>
-</form>
-

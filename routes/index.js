@@ -55,6 +55,7 @@ router.post("/event-detail", (req, res, next) => {
 router.get('/my-events', isLoggedIn, (req, res, next) => {
   const userId = req.session.user._id
   Event.find({organizer: userId})
+  .populate('participants')
   .then(eventsFromDB => {
     Event.find({participants: userId})
     .populate('organizer')

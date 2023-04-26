@@ -14,10 +14,14 @@
     <p class="card-text"><strong>Date:</strong> {{this.date}}</p>
     <p class="card-text"><strong>Description:</strong> {{this.description}}</p>
     <p class="card-text"><strong>Number of spots:</strong> {{this.maxParticipants}}</p>
-    <p class="card-text"><strong>Participants:</strong>  
+    <p class="card-text"><strong>Participants:</strong> 
+    {{#if this.participants}}
     {{#each this.participants}}
       {{this.username}}
     {{/each}}
+    {{else}}
+    No participants yet
+    {{/if}}
     </p>
     <a href="/join-event/{{this._id}}" class="btn btn-primary">Join this event</a>
   </div>

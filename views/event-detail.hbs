@@ -1,17 +1,18 @@
-<div class="card">
-  <div class="card-body">
-    <h5 class="card-title">{{newEvent.title}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{newEvent.location}}</h6>
-    <p class="card-text">{{newEvent.description}}</p>
-    <p class="card-text">Date: {{newEvent.date}}</p>
-    <p class="card-text">Number of spots: {{newEvent.maxParticipants}}</p>
-    <p class="card-text">Participants: {{newEvent.participants}}</p>
-    <a href="/my-events" class="card-link">My events</a>
-    <a href="/main" class="card-link">Join other events</a>
-    <a href='/edit-event/{{newEvent._id}}' class="card-link">Edit event</a>
-
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card" style="max-width: 600px; border-radius: 20px; margin-top: -100px; background-color:#F8F2C1">
+    <div class="card-body text-center">
+      <h5 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 30px; color:#F78F20">{{newEvent.title}}</h5>
+      <h6 class="card-subtitle" style="font-size: 30px; font-weight: bold; margin-bottom: 30px; color:#112C4A;">{{newEvent.location}}</h6>
+      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#F78F20;">{{newEvent.description}}</p>
+      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#F78F20;">Date: {{newEvent.date}}</p>
+      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#F78F20;">Number of spots: {{newEvent.maxParticipants}}</p>
+      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#F78F20;">Participants: {{newEvent.participants}}</p>
+      <div class="d-flex justify-content-between">
+        <a href="/my-events" class="card-link" style="font-size: 18px; font-weight: bold; margin-bottom: 30px; color:#112C4A; text-decoration: underline">My events</a>
+        <a href="/main" class="card-link" style="font-size: 18px; font-weight: bold; margin-bottom: 30px; color:#112C4A; text-decoration: underline">Join other events</a>
+        <a href='/edit-event/{{newEvent._id}}' class="card-link" style="font-size: 18px; font-weight: bold; margin-bottom: 30px; color:#112C4A; text-decoration: underline">Edit event</a>
+        <a href="/create-event" class="card-link" style="font-size: 18px; font-weight: bold; color:#112C4A; text-decoration: underline">Create new event</a>
+      </div>
+    </div>
   </div>
 </div>
- <a href="/create-event" class="card-link">Create new event</a>
-
- 

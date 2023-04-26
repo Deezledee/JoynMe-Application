@@ -99,6 +99,7 @@ router.post('/upcoming-events', (req, res, next) => {
     .then( foundEvents => {
       //filter out fully booked events
 
+
      const availableEvents = []
 
       foundEvents.forEach(event => {

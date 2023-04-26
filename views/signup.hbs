@@ -2,15 +2,15 @@
 
 <div class="container d-flex flex-column align-items-center">
     
-    <h1>Sign up</h1>
+    <h1 style="margin-bottom: 40px; margin-top:40px; font-size: 50px; font-weight: bold">Sign Up</h1>
     <form class="d-flex flex-column" action="/auth/signup" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
+        <label for="username" style="margin-bottom: 20px; font-size: 20px; font-weight: bold">Username:</label>
+        <input type="text" name="username" required style="width: 250px; height: 40px; margin-bottom: 20px;">
 
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
+        <label for="password" style="margin-bottom: 20px; font-size: 20px; font-weight: bold">Password:</label>
+        <input type="password" name="password" required style="width: 250px; height: 40px; margin-bottom: 20px; font-size: 20px">
 
-        <button class="btn btn-primary" type="submit">Signup</button>
+        <button class="btn btn-primary" type="submit" style="width: 250px; height: 40px; background-color: #F78F20; color: #FFFFFF; margin-top: 20px; font-size: 20px; padding-bottom: 40px; font-weight: bold">Signup</button>
     </form>
 
     {{#if message}}

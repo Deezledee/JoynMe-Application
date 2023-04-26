@@ -85,7 +85,10 @@ router.get("/auth/logout", (req, res, next) => {
 })
 
 router.get("/main", isLoggedIn, (req, res, next) => {
-  res.render("main")
+  User.findOne({  _id: req.session.user._id  })
+    .then(currentUser => {
+      res.render("main", { currentUser })
+    })
 })
 
 

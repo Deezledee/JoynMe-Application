@@ -58,9 +58,10 @@
           </ul>
         </div>
       </div>
-      <div>
-        {{!-- {{> user-partial}} --}}
-      </div>
+      {{#if currentUser}}
+       <p style="margin-right: 10px;">{{currentUser.username}}</p>
+        <img src="{{currentUser.picture}}" alt="profile picture" height="50px">
+      {{/if}}
     </nav>
     {{{body}}}
 

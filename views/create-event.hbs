@@ -1,40 +1,40 @@
-<div class="container" style="display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-     flex-direction: column;">
-  <h1>Create an Event</h1>
-  <form class="form" action="/event-detail" method="POST" style="text-align: center; margin: 0 auto;">
-    <div class="form-group">
-      <label for="title">What will you do?</label>
-      <input class="form-control" type="text" id="title" name="title" style="width: 200px; ">
-    </div>
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="card border-primary rounded-10" style="border-radius: 20px; background-color: #F8F2C1; width: 800px; margin-top: 50px">
+    <div class="card-body">
+      <h1 class="card-title text-center" style="font-size: 40px; font-weight: bold; margin-bottom: 20px">Create an Event 📝</h1>
+      <form class="form" action="/event-detail" method="POST" style="text-align: center; margin: 0 auto;">
+        <div class="form-group">
+          <label for="title" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">What will you do?</label>
+          <input class="form-control mx-auto" type="text" id="title" name="title" style="width: 300px;">
+        </div>
 
-    <div class="form-group">
-      <label for="location">Where?</label>
-      <input class="form-control" type="text" id="location" name="location" style="width: 200px;">
-    </div>
+        <div class="form-group">
+          <label for="location" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Location:</label>
+          <input class="form-control mx-auto" type="text" id="location" name="location" style="width: 300px;">
+        </div>
 
-    <div class="form-group">
-      <label for="date">When?</label>
-      <input class="form-control" type="date" id="date" name="date" style="width: 200px;">
-    </div>
+        <div class="form-group">
+          <label for="date" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Date:</label>
+          <input class="form-control mx-auto" type="date" id="date" name="date" style="width: 300px;">
+        </div>
 
-    <div class="form-group">
-      <label for="time">Time:</label>
-      <input class="form-control" type="time" id="time" name="time" style="width: 200px;">
-    </div>
+        <div class="form-group">
+          <label for="time" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Time:</label>
+          <input class="form-control mx-auto" type="time" id="time" name="time" style="width: 300px;">
+        </div>
 
-    <div class="form-group">
-      <label for="description">Tell us more?</label>
-      <textarea class="form-control" id="description" name="description" style="width: 200px;"></textarea>
-    </div>
+        <div class="form-group">
+          <label for="description" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Tell us more:</label>
+          <textarea class="form-control mx-auto" id="description" name="description" style="width: 400px;"></textarea>
+        </div>
 
-    <div class="form-group">
-      <label for="maxParticipants">How many guests do you accept?</label>
-      <input class="form-control" type="number" min="1" id="maxParticipants" name="maxParticipants" style="width: 200px;">
-    </div>
+        <div class="form-group">
+          <label for="maxParticipants" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Number of participants:</label>
+          <input class="form-control mx-auto" type="number" min="1" id="maxParticipants" name="maxParticipants" style="width: 300px; margin-bottom: 37px">
+        </div>
 
-    <button class="btn btn-primary" type="submit">Create Event</button>
-  </form>
+        <button class="btn btn-primary" type="submit" style="font-size: 20px; font-weight: bold; color: #FFFFFF; background-color: #F78F20; width: 200px">Create Event</button>
+      </form>
+    </div>
+  </div>
 </div>

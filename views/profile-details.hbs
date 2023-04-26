@@ -1,10 +1,13 @@
-<h1>My profile</h1>
-<div class="card">
-  <div class="card-body">
-    <img src={{currentUser.picture}} alt="profile picture" height="150px">
-    <p class="card-text">Username: {{currentUser.username}}</p>
-    <p class="card-text">Email: {{currentUser.email}}</p>
-    <p class="card-text">My interests: {{currentUser.interests}}</p>
-    <p class="card-text">About me: {{currentUser.about}}</p>
-    <a href="/edit-profile" class="btn btn-primary">Edit profile</a>
+<div class="container text-center" style="margin-top: 20px;">
+  <h1 style="font-size: 50px; font-weight: bold; margin-bottom: 40px">My Profile</h1>
+  <div class="card mx-auto" style="background-color: #F8F2C1; width: 350px;">
+    <div class="card-body">
+      <img src={{currentUser.picture}} alt="profile picture" height="200px;" style="margin-bottom: 20px; margin-top: 10px;">
+      <p class="card-text" style="font-size: 17px; font-weight: bold; color: #112C4A;">Username: <span style="font-size: 17px; font-weight: bold; color: #F78F20">{{currentUser.username}}</span></p>
+      <p class="card-text" style="font-size: 17px; font-weight: bold; color: #112C4A">Email: <span style="font-size: 17px; font-weight: bold; color: #F78F20">{{currentUser.email}}</span></p>
+      <p class="card-text" style="font-size: 17px; font-weight: bold; color: #112C4A">My Interests: <span style="font-size: 17px; font-weight: bold; color: #F78F20">{{currentUser.interests}}</span></p>
+      <p class="card-text" style="font-size: 17px; font-weight: bold; color: #112C4A">About Me: <span style="font-size: 17px; font-weight: bold; color: #F78F20">{{currentUser.about}}</span></p>
+      <a href="/edit-profile" class="btn btn-primary" style="font-size: 15px; font-weight: bold; color: #FFFFFF; background-color: #F78F20">Edit Profile</a>
+    </div>
   </div>
+</div>

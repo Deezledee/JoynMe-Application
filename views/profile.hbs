@@ -1,6 +1,6 @@
 <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
   <div style="width: 500px; margin-top: -60px">
-    <h1 style="text-align: center; margin-bottom: 30px; font-weight: bold">Hello {{user.username}}</h1>
+    <h1 style="text-align: center; margin-bottom: 30px; font-weight: bold">Hello  <span style="color:#FFFFFF;">{{user.username}} 👋</span></h1>
     <h2 style="text-align: center; margin-bottom: 40px">Finish setting up your profile:</h2>
     <form class="form" action="/edit-profile" method="POST" enctype="multipart/form-data" style="text-align: center; margin-bottom: -120px">
       <div class="form-group">
@@ -26,7 +26,7 @@
 
       <div class="form-group form-check" style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px;">
         <input class="form-check-input" type="checkbox" id="termsAccepted" name="termsAccepted" value="true">
-        <label class="form-check-label" for="termsAccepted" style="font-size: 20px; flex: 1;">Terms and Conditions</label>
+  <label class="form-check-label" for="termsAccepted" action="" style="font-size: 20px; flex: 1;"><a href="/privacy-policy" target="_blank" style="color: #F78F20;">Terms and Conditions</a></label>
         <div style="flex: 1; margin-left: 10px;">
           <input type="file" name="profileImg" id="profileImg" style="display: none;" />
           <label for="profileImg" style="cursor: pointer; background-color: #F78F20; color: #FFFFFF; padding: 10px 20px; font-size: 20px; font-weight: bold; border-radius: 5px;">

@@ -164,5 +164,10 @@ User.findByIdAndUpdate(userId, { username, email, interests, about, picture: img
   })
 })
 
+router.get('/privacy-policy', (req, res) => {
+  res.render('privacy-policy'); 
+});
+
+
 
 module.exports = router;

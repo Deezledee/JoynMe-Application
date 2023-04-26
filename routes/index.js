@@ -98,8 +98,7 @@ router.post('/upcoming-events', (req, res, next) => {
     .populate('organizer')
     .then( foundEvents => {
       //filter out fully booked events
-     // const availableEvents = []
-     //const availableEvents = []
+     const availableEvents = []
       foundEvents.forEach(event => {
         if(event.maxParticipants > event.participants.length) {
           availableEvents.push(event)
@@ -158,6 +157,11 @@ User.findByIdAndUpdate(userId, { username, email, interests, about, picture: img
     res.redirect('/profile-details')
   })
 })
+
+router.get('/privacy-policy', (req, res) => {
+  res.render('privacy-policy'); 
+});
+
 
 
 module.exports = router;

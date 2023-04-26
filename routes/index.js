@@ -98,11 +98,8 @@ router.post('/upcoming-events', (req, res, next) => {
     .populate('organizer')
     .then( foundEvents => {
       //filter out fully booked events
-<<<<<<< HEAD
-      const availableEvents = []
-=======
-     const availableEvents = []
->>>>>>> ff38d26f355e0fd4fddb30467f4e11063976b17c
+     // const availableEvents = []
+     //const availableEvents = []
       foundEvents.forEach(event => {
         if(event.maxParticipants > event.participants.length) {
           availableEvents.push(event)

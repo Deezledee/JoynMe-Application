@@ -38,11 +38,12 @@
           <ul
             class="navbar-nav mr-auto"
             style="display: flex; align-items: flex-start;"
-          >
+          >       
+         {{#if currentUser}}
+
            <li class="nav-item" style="margin-right: 20px;">
-          <img src="/images/pow.png" alt="pow" width="40">
+           <a href="/main"><img src="/images/pow.png" alt="pow" width="40"></a>
             </li>
-          {{#if currentUser}}
             <li class="nav-item" style="margin-right: 20px;">
               <a href="/create-event" style="color: #FFFFFF; font-size: 20px">Create Event</a>
             </li>
@@ -63,10 +64,12 @@
           </ul>
         </div>
       </div>
+
       {{#if currentUser}}
        <p style="margin-right: 10px; margin-top: 10px; color: #FFFFFF; font-size: 20px">{{currentUser.username}}</p>
+       <a href="/profile-details">
         <img src="{{currentUser.picture}}" alt="profile picture" height="50px">
-
+      </a>
       {{/if}}
     </nav>
     {{{body}}}

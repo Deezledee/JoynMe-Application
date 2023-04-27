@@ -1,7 +1,7 @@
 <div class="container text-center">
-  <div class="card mx-auto" style="max-width: 400px; border-radius: 20px; background-color:#F8F2C1">
+  <div class="card mx-auto" style="max-width: 400px; border-radius: 20px; background-color:#F8F2C1;">
     <div class="card-body">
-      <h1 class="card-title">Edit Profile</h1>
+      <h1 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 20px">Edit Profile</h1>
 
       <img src="{{currentUser.picture}}" alt="profile picture" height="100px" width="100px" style="border-radius: 50%" class="mx-auto d-block mb-3">
 
@@ -30,15 +30,17 @@
 
         <div class="form-group">
           <label for="about" style="font-size: 20px; font-weight: bold; margin-bottom: 20px">About me:</label>
-          <input type="text" class="form-control" id="about" name="about" value="{{currentUser.about}}" required>
+          <input type="text" class="form-control" id="about" name="about" style="margin-bottom: 40px" value="{{currentUser.about}}" required>
         </div>
 
-        <div class="form-group">
-          <label for="profileImg" style="display: none">Change your profile picture:</label>
-          <input type="file" name="profileImg" />
-        </div>
+  <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+  <input type="file" name="profileImg" id="profileImg" style="display: none;" />
+  <label for="profileImg" style="cursor: pointer; background-color: #F78F20; color: #FFFFFF; padding: 7px 10px; font-size: 20px; font-weight: bold; border-radius: 5px; margin-right: 10px;">Upload Image</label>
+          
+  <button type="submit" class="btn btn-primary" style="cursor: pointer; background-color: #FFFFFF; color: #F78F20; padding: 7px 10px; font-size: 20px; font-weight: bold; border-radius: 5px; margin-left: 10px; margin-top: -7px">Save Changes</button>
+</div>
 
-        <button type="submit" class="btn btn-primary">Save Edits</button>
+
       </form>
     </div>
   </div>

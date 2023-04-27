@@ -171,7 +171,7 @@ if (req.file && req.file.path) {
 
 const { username, email, interests, about } = req.body
 
-User.findByIdAndUpdate(userId, { username, email, interests, about, picture: imgPath }, {new: true})
+User.findByIdAndUpdate(userId, { profileCreated: true, username, email, interests, about, picture: imgPath }, {new: true})
   .then(() => {
     res.redirect('/profile-details')
   })

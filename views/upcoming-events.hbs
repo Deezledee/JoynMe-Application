@@ -1,20 +1,17 @@
-{{!-- {{#if !events}}
-<h1>No upcoming events at this location or time. Create your own event!</h1>
-{{/if}} --}}
-
 {{#if events}}
-<h1>Upcoming Events</h1>
+<div class="container d-flex flex-column align-items-center">
+<h1 class="m-3">Upcoming Events</h1>
 
 {{#each events}}
-<div class="card">
+<div class="card w-50 m-3 text-center" style="background-color: #F8F2C1; border-radius: 20px">
   <div class="card-body">
-    <h2 class="card-title">{{this.title}}</h2>
+    <h2 class="card-title" style="color:#112C4A">{{this.title}}</h2>
     <h4 class="card-text"><strong>Organized by:</strong> {{this.organizer.username}}</h4>
-    <p class="card-text"><strong>Place:</strong> {{this.location}}</p>
+    <p class="card-text" style="color:#112C4A"><strong>Place:</strong> {{this.location}}</p>
     <p class="card-text"><strong>Date:</strong> {{this.date}}</p>
-    <p class="card-text"><strong>Description:</strong> {{this.description}}</p>
+    <p class="card-text" style="color:#112C4A"><strong>Description:</strong> {{this.description}}</p>
     <p class="card-text"><strong>Number of spots:</strong> {{this.maxParticipants}}</p>
-    <p class="card-text"><strong>Participants:</strong> 
+    <p class="card-text" style="color:#112C4A"><strong>Participants:</strong> 
     {{#if this.participants}}
     {{#each this.participants}}
       {{this.username}}
@@ -23,13 +20,16 @@
     No participants yet
     {{/if}}
     </p>
-    <a href="/join-event/{{this._id}}" class="btn btn-primary">Join this event</a>
+    <a href="/join-event/{{this._id}}" class="btn btn-primary" style="background-color:#F78F20; color:#112C4A; font-size: 20px; font-weight: bold;">Join this event</a>
   </div>
 </div>
 {{/each}}
 
 {{else}}
+<div class="container d-flex flex-column align-items-center">
 <h1>No upcoming events at your preference. Create your own event!</h1>
-<a class="btn btn-primary" href="/create-event">Create Event</a>
+<a class="btn btn-primary" href="/create-event" style="background-color:#F78F20; color:#112C4A; font-size: 20px; font-weight: bold;">Create Event</a>
+</div>
 {{/if}}
+</div>
 

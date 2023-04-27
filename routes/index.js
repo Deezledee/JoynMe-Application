@@ -17,7 +17,6 @@ router.get("/profile", isLoggedIn, (req, res, next) => {
    })
 
 router.post("/main", isLoggedIn, uploader.single('file'), (req, res, next) => {
-  console.log(req.file)
 
    const {  email, intrests, about, termsAccepted } = req.body
    const userId = req.session.user._id

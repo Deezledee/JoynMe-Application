@@ -1,30 +1,45 @@
-<h1>Edit event</h1>
+<div class="container text-center">
+  <div class="card mx-auto" style="max-width: 400px; border-radius: 20px; background-color:#F8F2C1;">
+    <div class="card-body">
+      <h1 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 20px; color:#F78F20">Edit Event</h1>
 
-<form action="/edit-event/{{eventToEdit._id}}" method="POST">
-  <div class="form-group">
-    <label for="title">What will you do?</label>
-    <input type="text" class="form-control" id="title" name="title" value="{{eventToEdit.title}}" required>
-  </div>
-  <div class="form-group">
-    <label for="location">Where?</label>
-    <input type="text" class="form-control" id="location" name="location" value="{{eventToEdit.location}}" required>
-  </div>
-  <div class="form-group">
-    <label for="date">When?</label>
-    <input type="date" class="form-control" id="date" name="date" value="{{eventToEdit.date}}" required>
-  </div>
-  <div class="form-group">
-    <label for="time">Time:</label>
-    <input type="time" class="form-control" id="time" name="time" value="{{eventToEdit.time}}" required>
-  </div>
-  <div class="form-group">
-    <label for="description">Tell us more?</label>
-    <input type="text" class="form-control" id="description" name="description" value="{{eventToEdit.description}}" required>
-  </div>
-  <div class="form-group">
-    <label for="maxParticipants">How many guests do you accept?</label>
-    <input type="number" class="form-control" min="1" id="maxParticipants" name="maxParticipants" value="{{eventToEdit.maxParticipants}}" required>
-  </div>
-  <button type="submit" class="btn btn-primary">Edit Event</button>
-</form>
+      <form action="/edit-event/{{eventToEdit._id}}" method="POST">
 
+        <div class="form-group">
+          <label for="title" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">What will you do?</label>
+          <input type="text" class="form-control" id="title" name="title" value="{{eventToEdit.title}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="location" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Location:</label>
+          <input type="text" class="form-control" id="location" name="location" value="{{eventToEdit.location}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="date" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Date:</label>
+          <input type="date" class="form-control" id="date" name="date" value="{{eventToEdit.date}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="time" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Time:</label>
+          <input type="time" class="form-control" id="time" name="time" value="{{eventToEdit.time}}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="description" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Tell us more:</label>
+          <textarea class="form-control" id="description" name="description" rows="3" required>{{eventToEdit.description}}</textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="maxParticipants" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Number of participants:</label>
+          <input type="number" class="form-control" min="1" id="maxParticipants" name="maxParticipants" value="{{eventToEdit.maxParticipants}}" required>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" style="cursor: pointer; background-color: #F78F20; color: #FFFFFF; padding: 7px 10px; font-size: 20px; font-weight: bold; border-radius: 5px;">Edit Event</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

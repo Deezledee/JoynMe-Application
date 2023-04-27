@@ -1,29 +1,29 @@
 
 <div class="container fluid d-flex justify-content-center align-items-center; position: absolute  flex-wrap: wrap">
-  <div class="card" style="max-width: 600px; border-radius: 20px; background-color:#F8F2C1; d flex flex-wrap: wrap ">
+  <div class="card" style="max-width: 600px; border-radius: 20px; background-color:#000000; d flex flex-wrap: wrap ">
     <div class="card-body text-center">
       {{#if events}}
       <h1 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 30px; color:#F78F20">My Hosted Events</h1>
       {{/if}}
       {{#each events}}
-      <div class="card mb-3 d-flex justify-content-center align-items-center; flex-wrap: wrap" style="border-radius: 20px; width: 100%">
+      <div class="card mb-3 d-flex justify-content-center align-items-center; flex-wrap: wrap" style="border-radius: 20px; width: 100%; background-color: #F8F2C1">
         <div class="card-body text-center">
-          <h5 class="card-title">{{this.title}}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{this.location}}</h6>
-          <p class="card-text">{{this.description}}</p>
-          <p class="card-text"><small class="text-muted">{{this.date}} at {{this.time}}</small></p>
-          <p class="card-text">Contact guests: 
+          <h5 class="card-title" style="font-size: 30px; font-weight: bold; margin-bottom: 20px; color:#F78F20">{{this.title}}</h5>
+          <h6 class="card-subtitle" style="font-size: 20px; margin-bottom: 20px; color:#112C4A">{{this.location}}</h6>
+          <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#F78F20">{{this.description}}</p>
+          <p class="card-text"><small style="font-size: 15px; font-weight: bold; margin-bottom: 20px; color:#112C4A">{{this.date}} at {{this.time}}</small></p>
+          <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#F78F20">Contact Guests: 
           {{#if this.participants}}
            {{#each this.participants}}
           {{this.email}}
           {{/each}}
           {{else}}
-          No guests for now
+          <span style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A">No guests for now</span>
           {{/if}}
           </p>
           <div class="d-flex justify-content-center">
-            <a href='/edit-event/{{this._id}}' class="btn btn-primary">Edit event</a>
-            <a href='/delete-event/{{this._id}}' class="btn btn-danger ml-3">Delete event</a>
+            <a href='/edit-event/{{this._id}}' class="btn btn-primary" style="background-color:#F78F20; color:#112C4A; font-size: 20px; font-weight: bold;">Edit Event</a>
+            <a href='/delete-event/{{this._id}}' class="btn btn-danger ml-3" style="background-color:#112C4A; color:#F78F20; font-size: 20px; font-weight: bold;">Delete Event</a>
           </div>
         </div>
       </div>

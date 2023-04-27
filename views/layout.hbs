@@ -39,9 +39,10 @@
             class="navbar-nav mr-auto"
             style="display: flex; align-items: flex-start;"
           >
-  <li class="nav-item" style="margin-right: 20px;">
+           <li class="nav-item" style="margin-right: 20px;">
           <img src="/images/pow.png" alt="pow" width="40">
             </li>
+          {{#if currentUser}}
             <li class="nav-item" style="margin-right: 20px;">
               <a href="/create-event" style="color: #FFFFFF; font-size: 20px">Create Event</a>
             </li>
@@ -53,11 +54,12 @@
             </li>
             <li class="nav-item" style="margin-right: 20px;">
               <a href="/profile-details" style="color: #FFFFFF; font-size: 20px">View Profile</a>
-
             </li>
             <li class="nav-item" style="margin-right: 20px;">
               <a href="/auth/logout" style="color: #FFFFFF; font-size: 20px">Logout</a>
             </li>
+         {{/if}}
+
           </ul>
         </div>
       </div>

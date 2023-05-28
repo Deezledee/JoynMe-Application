@@ -1,40 +1,46 @@
-<div class="container d-flex justify-content-center align-items-center mt-3" style="height: 100vh;">
-  <div class="card border-primary rounded-10" style="border-radius: 20px; background-color: #F8F2C1; width: 800px; margin-top: 50px">
-    <div class="card-body">
-      <h1 class="card-title text-center" style="font-size: 40px; font-weight: bold; margin-bottom: 20px">Create an Event 📝</h1>
-      <form class="form" action="/event-detail" method="POST" style="text-align: center; margin: 0 auto;">
+<div class="container d-flex justify-content-center align-items-center mt-4">
+  <div class="card big-card">
+      <h1 class="card-title my-3">Create your event</h1>
+
+      <form class="h-100 w-100 form d-flex flex-column justify-content-center align-items-between" action="/event-detail" method="POST">
+
         <div class="form-group">
-          <label for="title" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">What will you do?</label>
-          <input class="form-control mx-auto" type="text" id="title" name="title" style="width: 300px;">
+          <label for="title">Give it a title:</label>
+          <input class="form-control" type="text" id="title" name="title">
+        </div>
+
+        <div class="form-row d-lg-flex">
+          <div class="form-group col-md-6">
+            <label for="location">Where is it happening:</label>
+            <input class="form-control" type="text" id="location" name="location">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="maxParticipants">How many guests do you accept:</label>
+            <input class="form-control" type="number" min="1" id="maxParticipants" name="maxParticipants">
+          </div>
+        </div>
+
+        <div class="form-row d-lg-flex">
+           <div class="form-group col-md-6">
+              <label for="date">Date:</label>
+              <input class="form-control" type="date" id="date" name="date">
+            </div>
+            <div class="form-group col-md-6">
+               <label for="time">Time:</label>
+                <input class="form-control" type="time" id="time" name="time">
+            </div>
         </div>
 
         <div class="form-group">
-          <label for="location" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Location:</label>
-          <input class="form-control mx-auto" type="text" id="location" name="location" style="width: 300px;">
+          <label for="description">Tell us more details:</label>
+          <textarea class="form-control" id="description" name="description"></textarea>
         </div>
 
-        <div class="form-group">
-          <label for="date" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Date:</label>
-          <input class="form-control mx-auto" type="date" id="date" name="date" style="width: 300px;">
-        </div>
 
-        <div class="form-group">
-          <label for="time" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Time:</label>
-          <input class="form-control mx-auto" type="time" id="time" name="time" style="width: 300px;">
-        </div>
-
-        <div class="form-group">
-          <label for="description" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Tell us more:</label>
-          <textarea class="form-control mx-auto" id="description" name="description" style="width: 400px;"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="maxParticipants" style="font-size: 20px; font-weight: bold; color: #112C4A; margin-bottom: 17px">Number of participants:</label>
-          <input class="form-control mx-auto" type="number" min="1" id="maxParticipants" name="maxParticipants" style="width: 300px; margin-bottom: 37px">
-        </div>
-
-        <button class="btn btn-primary" type="submit" style="font-size: 20px; font-weight: bold; color: #FFFFFF; background-color: #F78F20; width: 200px">Create Event</button>
+          <button class="btn action-button mt-4" type="submit">Create Event</button>
+      
       </form>
-    </div>
+
   </div>
 </div>
+

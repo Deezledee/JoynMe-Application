@@ -71,7 +71,7 @@ router.get('/edit-event/:id', (req, res, next) =>{
     .then(eventToEdit =>{
       User.findOne({  _id: req.session.user._id  })
        .then(currentUser => { 
-      res.render("edit-event", {eventToEdit, currentUser}) 
+        res.render("edit-event", {eventToEdit, currentUser}) 
        
       })
 }) })
@@ -86,7 +86,7 @@ router.post('/edit-event/:id', (req, res, next) => {
     description, 
     maxParticipants }, {new: true})
     .then((newEvent) => {
-      res.render(`event-detail`, {newEvent})
+      res.render("event-detail", {newEvent})
     })
     .catch(err => next(err))
 })

@@ -1,0 +1,143 @@
+body{
+    background-color: #F9FBFC;
+    color: #3A4149;
+    font-size: 16px;
+
+}
+
+/* nav */
+.navbar-light{
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.nav-logo{
+    width: 40px;
+}
+
+.nav-custom{
+    background-color: #ffffff;
+}
+/* ---- */
+
+/* --main-- */
+
+.landing-name{
+    color: #fe7a10;
+    font-size: 80px;
+    font-weight: 600;
+}
+
+.landing-catch-phrase{
+    color: #274b7b;
+    font-size: 25px;
+}
+
+.browse-container{
+    width: 100%;
+    height: 100%;
+}
+
+.browse-upcoming{
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.action-button{
+    color: #ffffff;
+    background-color: #fe7a10;
+}
+.action-button:hover {
+    color: #ffffff;
+    background-color: #fb8525;
+}
+
+.blue-gray-button{
+    border: 0.8px solid rgb(182, 182, 182);
+    color: #3728aa;
+}
+
+.blue-gray-button:hover{
+    color: #3728aa;
+    background-color: #d2dce9;
+
+}
+
+.gray-blue-button{
+    color: #3728aa;
+    background-color: #d2dce9;
+    border: 0.8px solid rgb(182, 182, 182);
+
+}
+
+.gray-blue-button:hover {
+    background: none;
+    border: 0.8px solid rgb(182, 182, 182);
+    color: #d2dce9
+}
+
+
+
+.create-event-button{
+    font-size: 30px;
+    padding: 20px 15px ;
+    box-shadow: 0px 1px 1px #D7DCE1, 4px 4px 30px #D9D9D9;
+}
+
+input, textarea{
+    /* box-shadow: 0px 1px 1px #D7DCE1, 4px 4px 30px #D9D9D9; */
+    color: #3A4149;
+    outline: none;
+}
+
+label{
+    width: 80%;
+}
+/* ---- */
+/* --create-event */
+.big-card{
+    padding: 10px 30px;
+    background-color: #ffffff;
+    width: 65vw;
+    margin: 20px 0;
+    background-color: #ffdccc;
+    border: none;
+    box-shadow: 0px 1px 1px #D7DCE1, 4px 4px 30px #D9D9D9;
+    border-radius: 14px;
+
+}
+/* ---------- */
+/* -----my-events------ */
+.my-events-container{
+    background-color: #e8ddfb;
+    width: 100vw;
+    min-height: 95vh;
+}
+
+.event-card{
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0px 1px 1px #D7DCE1, 2px 2px 10px #D9D9D9;
+}
+
+.event-log{
+    color: #3a4149b8;
+}
+
+.event-title, .welcome {
+    color: #213f52;
+}
+
+.no-events{
+    background-color: #e8ddfb;
+    min-height: 95vh;
+
+}
+
+/* --auth-- */
+
+.auth-card{
+    background-color: #8585df;
+    box-shadow: 0px 1px 1px #D7DCE1, 2px 2px 10px #D9D9D9;
+    color: #ffffff;
+    border-radius: 14px;
+}

@@ -3,6 +3,7 @@ const { isLoggedIn } = require('../middleware/route-guard');
 const User = require("../models/User.model")
 const bcrypt = require("bcryptjs")
 
+
 router.get("/auth/signup", (req, res, next) => {
     res.render("signup")
   })

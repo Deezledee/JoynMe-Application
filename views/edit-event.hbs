@@ -1,45 +1,43 @@
-<div class="container text-center">
-  <div class="card mx-auto" style="max-width: 400px; border-radius: 20px; background-color:#F8F2C1;">
-    <div class="card-body">
-      <h1 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 20px; color:#F78F20">Edit Event</h1>
+<div class="container d-flex justify-content-center align-items-center mt-4">
+  <div class="card big-card">
+      <h1 class="card-title my-3">Edit this event</h1>
 
-      <form action="/edit-event/{{eventToEdit._id}}" method="POST">
+      <form class="h-100 w-100 form d-flex flex-column justify-content-center align-items-between" action="/edit-event/{{eventToEdit._id}}" method="POST">
 
         <div class="form-group">
-          <label for="title" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">What will you do?</label>
-          <input type="text" class="form-control" id="title" name="title" value="{{eventToEdit.title}}" required>
+          <label for="title">Give it a title:</label>
+          <input class="form-control" type="text" id="title" name="title" value="{{eventToEdit.title}}">
+        </div>
+
+        <div class="form-row d-lg-flex">
+          <div class="form-group col-md-6">
+            <label for="location">Where is it happening:</label>
+            <input class="form-control" type="text" id="location" name="location" value="{{eventToEdit.location}}">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="maxParticipants">How many guests do you accept:</label>
+            <input class="form-control" type="number" min="1" id="maxParticipants" name="maxParticipants" value="{{eventToEdit.maxParticipants}}">
+          </div>
+        </div>
+
+        <div class="form-row d-lg-flex">
+           <div class="form-group col-md-6">
+              <label for="date">Date:</label>
+              <input class="form-control" type="date" id="date" name="date" value="{{eventToEdit.date}}">
+            </div>
+            <div class="form-group col-md-6">
+               <label for="time">Time:</label>
+                <input class="form-control" type="time" id="time" name="time" value="{{eventToEdit.time}}">
+            </div>
         </div>
 
         <div class="form-group">
-          <label for="location" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Location:</label>
-          <input type="text" class="form-control" id="location" name="location" value="{{eventToEdit.location}}" required>
+          <label for="description">Tell us more details:</label>
+          <textarea class="form-control" id="description" name="description">{{eventToEdit.description}}</textarea>
         </div>
 
-        <div class="form-group">
-          <label for="date" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Date:</label>
-          <input type="date" class="form-control" id="date" name="date" value="{{eventToEdit.date}}" required>
-        </div>
-
-        <div class="form-group">
-          <label for="time" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Time:</label>
-          <input type="time" class="form-control" id="time" name="time" value="{{eventToEdit.time}}" required>
-        </div>
-
-        <div class="form-group">
-          <label for="description" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Tell us more:</label>
-          <textarea class="form-control" id="description" name="description" rows="3" required>{{eventToEdit.description}}</textarea>
-        </div>
-
-        <div class="form-group">
-          <label for="maxParticipants" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A;">Number of participants:</label>
-          <input type="number" class="form-control" min="1" id="maxParticipants" name="maxParticipants" value="{{eventToEdit.maxParticipants}}" required>
-        </div>
-
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary" style="cursor: pointer; background-color: #F78F20; color: #FFFFFF; padding: 7px 10px; font-size: 20px; font-weight: bold; border-radius: 5px;">Edit Event</button>
-        </div>
-
+        <button class="btn action-button mt-4" type="submit">Save</button>
       </form>
-    </div>
+
   </div>
 </div>

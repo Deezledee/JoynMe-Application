@@ -1,38 +1,38 @@
 {{#if events}}
 <div class="my-events-container d-flex flex-column align-items-center">
-  <h1 class="m-3">Upcoming events:</h1>
-  {{#each events}}
-  <div class="event-card m-4 p-4 col-lg-6 col-md-12">
-    <div>
-      <h2 class="event-title">{{this.title}}</h2>
-      <h5><span class="event-log">Organized by: </span>{{this.organizer.username}}</h5>
-      <p><span class="event-log">Location: </span>{{this.location}}</p>
-      <p><span class="event-log">When: </span>{{this.date}}</p>
-      <p><span class="event-log">Time: </span>{{this.time}}</p>
-      <p><span class="event-log">Plan: </span>{{this.description}}</p>
-      <p><span class="event-log">Guests: </span> 
-      {{#if this.participants}}
-      {{#each this.participants}}
-        {{this.username}}
-      {{/each}}
-      {{else}}
-      none
-      {{/if}}
-      </p>
-      <p>{{this.maxParticipants}}<span class="event-log"> guests can still join</span></p>
+    <h1 class="m-3">Upcoming events:</h1>
+    {{#each events}}
+    <div class="event-card m-4 p-4 col-lg-6 col-md-12">
+      <div>
+        <h2 class="event-title">{{this.title}}</h2>
+        <h5><span class="event-log">Organized by: </span>{{this.organizer.username}}</h5>
+        <p><span class="event-log">Location: </span>{{this.location}}</p>
+        <p><span class="event-log">When: </span>{{this.date}}</p>
+        <p><span class="event-log">Time: </span>{{this.time}}</p>
+        <p><span class="event-log">Plan: </span>{{this.description}}</p>
+        <p><span class="event-log">Guests: </span> 
+        {{#if this.participants}}
+        {{#each this.participants}}
+          {{this.username}}
+        {{/each}}
+        {{else}}
+        none
+        {{/if}}
+        </p>
+        <p>{{this.maxParticipants}}<span class="event-log"> guests can still join</span></p>
 
-      <div class="d-flex justify-content-center">
-        <a href="/join-event/{{this._id}}" class="btn action-button">Join this event</a>
+        <div class="d-flex justify-content-center">
+          <a href="/join-event/{{this._id}}" class="btn action-button">Join this event</a>
+        </div>
       </div>
     </div>
+    {{/each}}
+  {{else}}
+  <div class="no-events d-flex flex-column align-items-center">
+    <h1 class="my-5">No upcoming events at your preference.</h1>
+    <a class="m-5 btn action-button create-event-button" href="/create-event">Create your own event!</a>
   </div>
-  {{/each}}
-{{else}}
-<div class="no-events d-flex flex-column align-items-center">
-  <h1 class="my-5">No upcoming events at your preference.</h1>
-  <a class="m-5 btn action-button create-event-button" href="/create-event">Create your own event!</a>
-</div>
-{{/if}}
+  {{/if}}
 </div>
 
 

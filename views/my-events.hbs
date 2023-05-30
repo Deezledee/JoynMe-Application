@@ -1,49 +1,56 @@
-<div class="container fluid d-flex justify-content-center align-items-center; position: absolute  flex-wrap: wrap">
-  <div class="card" style="max-width: 600px; border-radius: 20px; background-color:#000000; d flex flex-wrap: wrap ">
-    <div class="card-body text-center">
-      {{#if events}}
-      <h1 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 30px; color:#F78F20">My Hosted Events</h1>
-      {{/if}}
-      {{#each events}}
-      <div class="card mb-3 d-flex justify-content-center align-items-center; flex-wrap: wrap" style="border-radius: 20px; width: 100%; background-color: #F8F2C1">
-        <div class="card-body text-center">
-          <h5 class="card-title" style="font-size: 30px; font-weight: bold; margin-bottom: 20px; color:#F78F20">{{this.title}}</h5>
-          <h6 class="card-subtitle" style="font-size: 20px; margin-bottom: 20px; color:#112C4A">{{this.location}}</h6>
-          <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#F78F20">{{this.description}}</p>
-          <p class="card-text"><small style="font-size: 15px; font-weight: bold; margin-bottom: 20px; color:#112C4A">{{this.date}} at {{this.time}}</small></p>
-          <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#F78F20">Contact Guests: 
+<div class="my-events-container">
+  <div class="row px-lg-4">
+    <div class="col-lg-6 col-md-12">
+      <h1 class="p-4">Hosting:</h1>
+    {{#if events}}
+    {{#each events}}
+      <div class="event-card m-4 p-4">
+          <h2 class="event-title">{{this.title}}</h2>
+                <p><span class="event-log">Location: </span>{{this.location}}</p>
+                <p><span class="event-log">When: </span>{{this.date}}</p>
+                <p><span class="event-log">Time: </span>{{this.time}}</p>
+                <p><span class="event-log">Plan: </span>{{this.description}}</p>
           {{#if this.participants}}
+           <p><span class="event-log">Contact guests: </span>
            {{#each this.participants}}
           {{this.email}}
           {{/each}}
           {{else}}
-          <span style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#112C4A">No guests for now</span>
+          <p class="event-log">0 participants for now</p>
           {{/if}}
           </p>
           <div class="d-flex justify-content-center">
-            <a href='/edit-event/{{this._id}}' class="btn btn-primary" style="background-color:#F78F20; color:#112C4A; font-size: 20px; font-weight: bold;">Edit Event</a>
-            <a href='/delete-event/{{this._id}}' class="btn btn-danger ml-3" style="background-color:#112C4A; color:#F78F20; font-size: 20px; font-weight: bold;">Delete Event</a>
+            <a href='/edit-event/{{this._id}}' class="btn action-button mx-2">Edit event</a>
+            <a href='/delete-event/{{this._id}}' class="btn blue-gray-button mx-2">Cancel event</a>
           </div>
-        </div>
       </div>
-      {{/each}} 
+    {{/each}} 
+    {{else}}
+      <p class="p-4">You are not hosting any events soon...</p>
+    {{/if}}
+    
+    </div>
+    <div class="col-lg-6 col-md-12">
+      <h1 class="p-4">Joining:</h1>
+
       {{#if participation}}
-        <h1 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 30px; color:#F78F20">Events I Joined</h1>
         {{#each participation}}
-        <div class="card mb-3 d-flex justify-content-center align-items-center; flex-wrap: wrap" style="border-radius: 20px; width: 100%; background-color: #F8F2C1">
-          <div class="card-body text-center">
-            <h5 class="card-title" style="font-size: 30px; font-weight: bold; margin-bottom: 20px; color:#F78F20">{{this.title}}</h5>
-            <h6 class="card-subtitle" style="font-size: 20px; margin-bottom: 20px; color:#112C4A">{{this.location}}</h6>
-            <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#F78F20">{{this.description}}</p>
-            <p class="card-text"><small style="font-size: 15px; font-weight: bold; margin-bottom: 20px; color:#112C4A">{{this.date}} at {{this.time}}</small></p>
-            <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 20px; color:#F78F20">Contact organizer: {{this.organizer.email}}</p>
-            <div class="d-flex justify-content-center">
-              <a href='/cancel/{{this._id}}' class="btn btn-danger" style="background-color:#112C4A; color:#F78F20; font-size: 20px; font-weight: bold;">I can't participate anymore</a>
+          <div class="event-card m-4 p-4 2d-flex justify-content-center align-items-center">
+            <div>
+                <h2 class="event-title">{{this.title}}</h2>
+                <p><span class="event-log">Location: </span>{{this.location}}</p>
+                <p><span class="event-log">When: </span>{{this.date}}</p>
+                <p><span class="event-log">Time: </span>{{this.time}}</p>
+                <p><span class="event-log">Plan: </span>{{this.description}}</p>
+                <p><span class="event-log">Contact organizer: </span>{{this.organizer.email}}</p>
+                <div class="d-flex justify-content-center">
+                  <a href='/cancel/{{this._id}}' class="btn blue-gray-button mx-2">Cancel participation</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
         {{/each}} 
       {{/if}}
+
     </div>
   </div>
 </div>

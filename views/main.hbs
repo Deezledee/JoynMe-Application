@@ -1,24 +1,24 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-6 text-center">
-            <h1 style="font-size: 40px; font-weight: bold; margin-top: 75px; margin-bottom: 40px">Browse Upcoming Events</h1>
+<div class="mt-1 container browse-container">
+    <div class="row px-2">
+        <div class="my-5 p-3 col-md-6 text-center browse-upcoming">
+            <h1 class="m-3 browse-title">Browse Upcoming Events</h1>
             <form action="/upcoming-events" method="POST">
-                <div class="form-group">
-                    <label for="location" style="font-size: 20px; font-weight: bold; margin-bottom: 20px">Where?</label><br>
-                    <input type="text" class="form-control" id="location" placeholder="Enter location" name="location" style="width: 250px; margin: 0 auto 10px;">
-                    <br>
-                    <label for="city" style="font-size: 20px; font-weight: bold; margin-bottom: 20px">When?</label><br>
-                    <input type="date" class="form-control" id="date" placeholder="Enter date" name="date" style="width: 250px; margin: 0 auto 20px;">
-
-                    <input class="btn btn-secondary" type="submit" value="Search" style="color:#FFFFFF; background-color: #F78F20; font-size: 20px; font-weight: bold; margin-top: 20px">
+                <div class="form-group d-flex flex-column justify-content-center align-items-center">
+                    <label for="location" class="m-2 form-label">Where?</label>
+                    <input type="text" class="form-control w-75" id="location" placeholder="Enter location" name="location">
+                    <label for="city" class="m-2 form-label">When?</label>
+                    <input type="date" class="form-control w-75" id="date" placeholder="Enter date" name="date">
+                    <input class="m-5 btn action-button" type="submit" value="Search">
                 </div>
             </form>
         </div>
-        <div class="col-md-6 text-center" style="display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;">
-            <a class="btn btn-primary" href="/create-event" style="text-align: center; font-size: 90px; font-weight: bold; margin-top: 60px; width: 400px; height: 300px; color:#FFFFFF; background-color: #F78F20; position: absolute; right: 0; top: 50%; transform: translateY(-50%);">
-                Create Event 
-            </a>
+        <div class="col-md-1 text-center d-flex justify-content-center align-items-center">
+            <p>OR</p>
+        </div>
+        <div class="col-md-5 text-center d-flex justify-content-center align-items-center">
+            <a class="btn action-button create-event-button" href="/create-event">Create Event</a>
         </div>
     </div>
 </div>
+
 

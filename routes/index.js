@@ -1,6 +1,6 @@
-const express = require('express');
-const { isLoggedIn } = require('../middleware/route-guard');
-const router = express.Router();
+const express = require('express')
+const { isLoggedIn } = require('../middleware/route-guard')
+const router = express.Router()
 const User = require("../models/User.model")
 const Event = require("../models/Event.model")
 const { uploader, cloudinary } = require("../config/cloudinary.config")
@@ -8,13 +8,13 @@ const { uploader, cloudinary } = require("../config/cloudinary.config")
 
 
 router.get("/", (req, res, next) => {
-  res.render("index");
+  res.render("index")
 });
 
 router.get("/profile", isLoggedIn, (req, res, next) => {
   const user = req.session.user
   res.render("profile", { user: user })
-   })
+  })
 
 router.post("/main", isLoggedIn, uploader.single('file'), (req, res, next) => {
 
@@ -22,12 +22,10 @@ router.post("/main", isLoggedIn, uploader.single('file'), (req, res, next) => {
    const userId = req.session.user._id
    const imgPath = req.file.path
 
-
    User.findByIdAndUpdate(userId, {  email, intrests, about, termsAccepted, picture: imgPath, profileCreated: true }, { new: true })
    .then(currentUser => {
     res.redirect("main", { currentUser })
    })
-  
 })
 
 router.get('/create-event', isLoggedIn, (req, res, next) => {
@@ -49,7 +47,6 @@ router.post("/event-detail", (req, res, next) => {
     )
 }) 
 
-
 // render created and joined events
 router.get('/my-events', isLoggedIn, (req, res, next) => {
   const userId = req.session.user._id
@@ -62,7 +59,8 @@ router.get('/my-events', isLoggedIn, (req, res, next) => {
      User.findOne({  _id: req.session.user._id  })
     .then(currentUser => { 
       res.render('my-events', {events: eventsFromDB, participation: joinedEvents, currentUser } ) } )
-    }) })
+    }) 
+  })
 })
 
 
@@ -71,10 +69,10 @@ router.get('/edit-event/:id', (req, res, next) =>{
     .then(eventToEdit =>{
       User.findOne({  _id: req.session.user._id  })
        .then(currentUser => { 
-      res.render("edit-event", {eventToEdit, currentUser}) 
-       
+        res.render("edit-event", {eventToEdit, currentUser}) 
       })
-}) })
+  }) 
+})
 
 router.post('/edit-event/:id', (req, res, next) => {
   const { title, location, date, time, description, maxParticipants } = req.body
@@ -86,7 +84,8 @@ router.post('/edit-event/:id', (req, res, next) => {
     description, 
     maxParticipants }, {new: true})
     .then((newEvent) => {
-      res.render(`event-detail`, {newEvent})
+      res.render("event-detail", {newEvent})
+      res.render("/my-events")
     })
     .catch(err => next(err))
 })
@@ -150,6 +149,7 @@ router.get('/profile-details', (req, res, next) => {
       res.render('profile-details', { currentUser })
     })
 })
+
 //got to edit profile view
 router.get('/edit-profile', (req, res, next) => {
   User.findOne({  _id: req.session.user._id  })
@@ -157,6 +157,7 @@ router.get('/edit-profile', (req, res, next) => {
       res.render('edit-profile', { currentUser })
     })
 })
+
 //update user profile
 router.post('/edit-profile', uploader.single('profileImg'), (req, res, next) => {
 console.log("FILE ", req.file)
@@ -167,7 +168,6 @@ if (req.file && req.file.path) {
   imgPath = req.file.path
 }
 
-
 const { username, email, interests, about } = req.body
 
 User.findByIdAndUpdate(userId, { profileCreated: true, username, email, interests, about, picture: imgPath }, {new: true})
@@ -177,9 +177,7 @@ User.findByIdAndUpdate(userId, { profileCreated: true, username, email, interest
 })
 
 router.get('/privacy-policy', (req, res) => {
-  res.render('privacy-policy'); 
-});
-
-
+  res.render('privacy-policy')
+})
 
 module.exports = router

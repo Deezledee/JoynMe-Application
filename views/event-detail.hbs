@@ -1,18 +1,14 @@
-<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-  <div class="card" style="max-width: 600px; border-radius: 20px; margin-top: -100px; background-color:#F8F2C1">
-    <div class="card-body text-center">
-      <h5 class="card-title" style="font-size: 40px; font-weight: bold; margin-bottom: 30px; color:#112C4A">{{newEvent.title}}</span></h5>
-      <h6 class="card-subtitle" style="font-size: 30px; font-weight: bold; margin-bottom: 30px; color:#112C4A;">Location: <span style="color:#F78F20">{{newEvent.location}}</span></h6>
-      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#112C4A;">Event Description: <span style="color:#F78F20">{{newEvent.description}}</span></p>
-      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#112C4A;">Date: <span style="color:#F78F20">{{newEvent.date}}</span></p>
-      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#112C4A;">Number of spots: <span style="color:#F78F20">{{newEvent.maxParticipants}}</span></p>
-      <p class="card-text" style="font-size: 20px; font-weight: bold; margin-bottom: 30px; color:#112C4A;">Participants: <span style="color:#F78F20">{{newEvent.participants}}</span></p>
-      <div class="d-flex justify-content-between">
-        <a href="/my-events" class="card-link" style="font-size: 18px; font-weight: bold; margin-bottom: 30px; color:#112C4A; text-decoration: underline">My events</a>
-        <a href="/main" class="card-link" style="font-size: 18px; font-weight: bold; margin-bottom: 30px; color:#112C4A; text-decoration: underline">Join other events</a>
-        <a href='/edit-event/{{newEvent._id}}' class="card-link" style="font-size: 18px; font-weight: bold; margin-bottom: 30px; color:#112C4A; text-decoration: underline">Edit event</a>
-        <a href="/create-event" class="card-link" style="font-size: 18px; font-weight: bold; color:#112C4A; text-decoration: underline">Create new event</a>
+<div class="no-events d-flex justify-content-center align-items-center">
+  <div class="col-md-6 event-card m-4 p-4">
+      <h2 class="event-title">{{newEvent.title}}</h2>
+      <p><span class="event-log">Location: </span>{{newEvent.location}}</p>
+      <p><span class="event-log">When: </span>{{newEvent.date}}</p>
+      <p><span class="event-log">Time: </span>{{newEvent.time}}</p>
+      <p><span class="event-log">Plan: </span>{{newEvent.description}}</p>
+      <p><span class="event-log">Max number of guests: </span>{{newEvent.maxParticipants}}</p>      
+      <div class="d-flex justify-content-center">
+        <a href='/edit-event/{{newEvent._id}}' class="btn blue-gray-button m-2">Edit event</a>
       </div>
-    </div>
   </div>
 </div>
+

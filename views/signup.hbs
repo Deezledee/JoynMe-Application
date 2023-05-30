@@ -1,19 +1,27 @@
+<div class="d-flex flex-column align-items-center justify-content-center vh-100">
+    <div class="auth-card p-4 col-lg-6 col-md-12 d-flex flex-column align-items-center">
+      <h1 class="p-3">Sign Up</h1>
+      <form class="form w-100 p-3" action="/auth/signup" method="POST">
+        <div class="form-group m-2">
+            <label for="username">Username:</label>
+            <input class="form-control" type="text" name="username" required>
+        </div>
+        <div class="form-group m-2">
+            <label for="password">Password:</label>
+            <input class="form-control" type="password" name="password" required>
+        </div>
 
+        <div class="mt-4 d-flex justify-content-center">
+            <button class="btn action-button" type="submit">Create Profile</button>
+        </div>
+     </form>
 
-<div class="container d-flex flex-column align-items-center">
-    
-    <h1 style="margin-bottom: 40px; margin-top:40px; font-size: 50px; font-weight: bold">Sign Up</h1>
-    <form class="d-flex flex-column" action="/auth/signup" method="POST">
-        <label for="username" style="margin-bottom: 20px; font-size: 20px; font-weight: bold">Username:</label>
-        <input type="text" name="username" required style="width: 250px; height: 40px; margin-bottom: 20px;">
+     {{#if message}}
+            <h3 class="error">{{message}}</h3>
+     {{/if}}
 
-        <label for="password" style="margin-bottom: 20px; font-size: 20px; font-weight: bold">Password:</label>
-        <input type="password" name="password" required style="width: 250px; height: 40px; margin-bottom: 20px; font-size: 20px">
-
-        <button class="btn btn-primary" type="submit" style="width: 250px; height: 40px; background-color: #F78F20; color: #FFFFFF; margin-top: 20px; font-size: 20px; padding-bottom: 40px; font-weight: bold">Signup</button>
-    </form>
-
-    {{#if message}}
-        <h3 class="error">{{message}}</h3>
-    {{/if}}
+    </div>
 </div>
+
+
+

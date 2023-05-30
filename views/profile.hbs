@@ -1,46 +1,53 @@
-<div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-  <div style="width: 500px; margin-top: -60px">
-    <h1 style="text-align: center; margin-bottom: 30px; font-weight: bold">Hello  <span style="color:#FFFFFF;">{{user.username}} 👋</span></h1>
-    <h2 style="text-align: center; margin-bottom: 40px">Finish setting up your profile:</h2>
-    <form class="form" action="/edit-profile" method="POST" enctype="multipart/form-data" style="text-align: center; margin-bottom: -120px">
-      <div class="form-group">
-        <label for="email" style="margin-bottom: 20px; font-size: 20px">Email Address (Public):</label>
-        <input class="form-control" type="text" name="email" id="email" style="margin-bottom: 30px">
-      </div>
+<div class="d-flex flex-column align-items-center">
+    <h1 class="p-3 welcome">Welcome onboard {{user.username}} 👋</h1>
 
-      <div class="form-group">
-        <label for="interests" style="margin-bottom: 20px; font-size: 20px;">What are you passionate about:</label>
-        <select class="form-control" id="interests" name="interests" style="margin-bottom: 20px">
-          <option>Sports</option>
-          <option>Music</option>
-          <option>Food</option>
-          <option>Travel</option>
-          <option>Nightlife</option>
-          <option>Tech</option>
-          <option>Art</option>
-          <option>Concerts</option>
-          <option>Reading</option>
-          <option>Coffee</option>
-        </select>
-      </div>
+    <div class="auth-card p-4 col-lg-6 col-md-12 d-flex flex-column align-items-center">
 
-      <div class="form-group">
-        <label for="about" style="margin-bottom: 20px; font-size: 20px">Tell us a bit about yourself:</label>
-        <textarea class="form-control" name="about" id="about" style="height: 100px;"></textarea>
-      </div>
-
-      <div class="form-group form-check" style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px;">
-        <input class="form-check-input" type="checkbox" id="termsAccepted" name="termsAccepted" value="true">
-  <label class="form-check-label" for="termsAccepted" action="" style="font-size: 20px; flex: 1;"><a href="/privacy-policy" target="_blank" style="color: #F78F20;">Terms and Conditions</a></label>
-        <div style="flex: 1; margin-left: 10px;">
-          <input type="file" name="profileImg" id="profileImg" style="display: none;" />
-          <label for="profileImg" style="cursor: pointer; background-color: #F78F20; color: #FFFFFF; padding: 10px 20px; font-size: 20px; font-weight: bold; border-radius: 5px;">
-            Upload Profile Image
-          </label>
+      <h2>Finish setting up your profile:</h2>
+      <form class="form w-100 p-3" action="/edit-profile" method="POST" enctype="multipart/form-data">
+        <div class="form-group m-2">
+          <label for="email">Email address (public):</label>
+          <input class="form-control" type="text" name="email" id="email">
         </div>
-      </div>
 
-      <button class="btn btn-primary" type="submit" style="background-color: #FFFFFF; color: #F78F20; font-size: 20px; padding: 10px 20px; font-weight: bold; border-radius: 5px; margin-top: 20px; margin-bottom: 30px">Create Profile</button>
+        <div class="form-group m-2">
+          <label for="interests">Select your interests:</label>
+          <select class="form-control" id="interests" name="interests">
+            <option>Sports</option>
+            <option>Music</option>
+            <option>Food</option>
+            <option>Travel</option>
+            <option>Nightlife</option>
+            <option>Tech</option>
+            <option>Art</option>
+            <option>Concerts</option>
+            <option>Reading</option>
+            <option>Coffee</option>
+          </select>
+        </div>
+
+        <div class="form-group m-2">
+          <label for="about">Tell us about yourself:</label>
+          <textarea class="form-control" name="about" id="about" style="height: 100px;"></textarea>
+        </div>
+
+        <div class="form-group form-check m-2">
+
+          <input class="form-check-input" type="checkbox" id="termsAccepted" name="termsAccepted" value="true">
+          <label class="form-check-label" for="termsAccepted"><a href="/privacy-policy" target="_blank">Terms and Conditions</a></label>
+        
+        </div>
+
+          <div class="form-group m-2 d-flex justify-content-center">
+            <input type="file" name="profileImg" id="profileImg" style="display: none;" />
+            <label class=" w-75 btn gray-blue-button" for="profileImg">Upload profile picture</label>
+          </div>
+
+        <div class="d-flex justify-content-center">
+        <button class="btn action-button" type="submit">Create Profile</button>
+        </div>
+
+    </div>
     </form>
-  </div>
 </div>
+

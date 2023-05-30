@@ -3,13 +3,13 @@ const { isLoggedIn } = require('../middleware/route-guard');
 const User = require("../models/User.model")
 const bcrypt = require("bcryptjs")
 
+
 router.get("/auth/signup", (req, res, next) => {
     res.render("signup")
   })
   
 router.post("/auth/signup", (req, res, next) => {
     const { username, password } = req.body
-  
    
     if (username === "") {
       res.render("signup", { message: "Username cannot be empty" })
@@ -90,6 +90,5 @@ router.get("/main", isLoggedIn, (req, res, next) => {
       res.render("main", { currentUser })
     })
 })
-
 
 module.exports = router;
